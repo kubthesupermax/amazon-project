@@ -1,5 +1,5 @@
 // Research on data normalization / Normalizing the data
-export const cart = [
+export let cart = [
   {
     productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     quantity: 2,
@@ -33,4 +33,16 @@ export function addToCart(productId) {
       quantity: 1,
     }); //3.
   }
+}
+
+export function removeFromCart(productId) {
+  const newArray = [];
+
+  cart.forEach((cartItem) => {
+    if (cartItem.productId !== productId) {
+      newArray.push(cartItem);
+    }
+  });
+
+  cart = newArray;
 }
